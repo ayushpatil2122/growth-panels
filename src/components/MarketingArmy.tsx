@@ -1,6 +1,6 @@
 import { ArrowRight, Check } from 'lucide-react'
 
-export function MarketingArmy() {
+export default function MarketingArmy() {
   return (
     <section className="bg-black text-white py-20">
       <div className="container mx-auto px-4 text-center">

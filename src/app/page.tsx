@@ -1,15 +1,15 @@
-import { CatalyzeGrowth } from "@/components/CatalyzeGrowth";
-import { Hero } from "@/components/Hero";
-import { MarketingArmy } from "@/components/MarketingArmy";
-import { Navbar } from "@/components/Navbar";
+import Analytics from "@/components/Analytics";
+import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
+import PowerOfCommunity from "@/components/PowerOfCommunity";
 
 export default function Home() {
   return (
     <>
       <Navbar/>
       <Hero/>
-      <MarketingArmy/>
-      <CatalyzeGrowth/>
+      <Analytics/>
+      <PowerOfCommunity/>
     </>
   );
 }
