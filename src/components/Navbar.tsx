@@ -1,4 +1,6 @@
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs'
+import Link from 'next/link'
+
 
 export default function Navbar() {
   return (
@@ -27,9 +29,9 @@ export default function Navbar() {
                 }
               }}
             />
-            <button className="text-sm font-bold bg-white text-black px-4 py-2 rounded-full">
+            <Link href="/dashboard" className="text-sm font-bold bg-white text-black px-4 py-2 rounded-full">
               Dashboard
-            </button>
+            </Link>
           </SignedIn>
         </div>
       </div>
