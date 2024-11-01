@@ -1,3 +1,5 @@
+'use client'
+
 import { Search } from "lucide-react";
 import { Input } from "../ui/input";
 import {
@@ -9,12 +11,15 @@ import {
 
 import { Settings, LogOut } from 'lucide-react'
 import { UserButton } from "@clerk/nextjs"
+import { usePathname } from "next/navigation";
 
 export default function Header() {
+  const pathname = usePathname();
+
     return <>
         <header className="flex items-center justify-between px-8 py-4 border-b border-gray-200">
           <div className="flex items-center gap-8">
-            <h1 className="text-xl font-semibold">Inbox</h1>
+            <h1 className="text-xl font-semibold">{pathname === '/dashboard' ? 'Inbox' : pathname === '/dashboard/panels' ? 'create panels' : 'Setting'}</h1>
             <div className="relative">
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
               <Input
