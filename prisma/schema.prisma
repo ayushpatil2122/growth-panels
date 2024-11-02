@@ -1,0 +1,51 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id              String @id @default(uuid())
+  clerkUserId     String @unique
+  email           String @unique
+  name            String?
+  companyName     String?
+  domain          String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  panels          Panel[]
+  tasks           Task[]
+}
+
+
+model Panel {
+  id              String @id @default(uuid())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  userId          String
+  user            User @relation(fields: [userId], references: [id])
+  tasks           Task[]
+}
+
+model Task{
+  id              String @id @default(uuid())
+  type            PanelType
+  userId          String
+  user            User @relation(fields: [userId], references: [id])
+  panelId         String
+  panel           Panel @relation(fields: [panelId], references: [id])
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+
+
+enum PanelType {
+  SHARE
+  FOLLOW
+}
